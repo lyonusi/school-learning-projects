@@ -560,8 +560,10 @@
     <body>
         <div class="landing-page" id="landingPage">
             <h1>🍁 Canadian Provinces and Territories Game 🍁</h1>
-            <p class="subtitle">Test your knowledge of Canadian provinces, territories and capitals cities!</p>
-            
+            <p class="subtitle">
+                Test your knowledge of Canadian provinces, territories and capitals cities!
+            </p>
+
             <div class="level-cards">
                 <button class="level-card" onclick="selectLevel(1)">
                     <div class="level-number">1</div>
@@ -570,7 +572,7 @@
                         <div class="level-desc">Match province and territory names to the map</div>
                     </div>
                 </button>
-                
+
                 <button class="level-card" onclick="selectLevel(2)">
                     <div class="level-number">2</div>
                     <div class="level-content">
@@ -578,7 +580,7 @@
                         <div class="level-desc">Spell the province and territory names</div>
                     </div>
                 </button>
-                
+
                 <button class="level-card" onclick="selectLevel(3)">
                     <div class="level-number">3</div>
                     <div class="level-content">
@@ -586,7 +588,7 @@
                         <div class="level-desc">Match capital cities by province and territory</div>
                     </div>
                 </button>
-                
+
                 <button class="level-card" onclick="selectLevel(4)">
                     <div class="level-number">4</div>
                     <div class="level-content">
@@ -595,7 +597,7 @@
                     </div>
                 </button>
             </div>
-            
+
             <div class="footer">Made by Felicia Li</div>
         </div>
 
@@ -948,7 +950,7 @@
                     <div id="inputContainer" class="input-container hidden"></div>
                 </div>
             </div>
-            
+
             <div class="footer">Made by Felicia Li</div>
         </div>
 
@@ -968,7 +970,7 @@
 
         <script>
             // ========== CONSTANTS ==========
-            
+
             const PROVINCES = {
                 'CA-AB': { name: 'Alberta', capital: 'Edmonton' },
                 'CA-BC': { name: 'British Columbia', capital: 'Victoria' },
@@ -1022,24 +1024,122 @@
             };
 
             const CAPITAL_LABEL_POSITIONS = {
-                'CA-OT': { offsetX: 48, offsetY: 31, anchor: 'middle', showLine: false, dotX: 428, dotY: 558 },
-                'CA-BC': { offsetX: -40, offsetY: 104, anchor: 'middle', showLine: false, dotX: 39, dotY: 470 },
-                'CA-AB': { offsetX: -5, offsetY: 30, anchor: 'middle', showLine: false, dotX: 133, dotY: 434 },
-                'CA-SK': { offsetX: -9, offsetY: 114, anchor: 'middle', showLine: true, dotX: 196, dotY: 485 },
-                'CA-MB': { offsetX: 0, offsetY: 4, anchor: 'middle', showLine: false, dotX: 254, dotY: 505 },
-                'CA-ON': { offsetX: -9, offsetY: 56, anchor: 'middle', showLine: false, dotX: 412, dotY: 582 },
-                'CA-NL': { offsetX: 88, offsetY: 17, anchor: 'middle', showLine: true, dotX: 625, dotY: 469 },
-                'CA-PE': { offsetX: 40, offsetY: -5, anchor: 'start', showLine: true, dotX: 550, dotY: 517 },
-                'CA-NS': { offsetX: 33, offsetY: 28, anchor: 'start', showLine: true, dotX: 553, dotY: 538 },
-                'CA-NB': { offsetX: 26, offsetY: 71, anchor: 'start', showLine: true, dotX: 521, dotY: 529 },
-                'CA-NU': { offsetX: 182, offsetY: 54, anchor: 'middle', showLine: false, dotX: 445, dotY: 305 },
-                'CA-NT': { offsetX: 1, offsetY: 70, anchor: 'middle', showLine: false, dotX: 166, dotY: 318 },
-                'CA-YT': { offsetX: -15, offsetY: 17, anchor: 'middle', showLine: false, dotX: 33, dotY: 283 },
-                'CA-QC': { offsetX: -27, offsetY: 35, anchor: 'middle', showLine: false, dotX: 479, dotY: 519 },
+                'CA-OT': {
+                    offsetX: 48,
+                    offsetY: 31,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 428,
+                    dotY: 558,
+                },
+                'CA-BC': {
+                    offsetX: -40,
+                    offsetY: 104,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 39,
+                    dotY: 470,
+                },
+                'CA-AB': {
+                    offsetX: -5,
+                    offsetY: 30,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 133,
+                    dotY: 434,
+                },
+                'CA-SK': {
+                    offsetX: -9,
+                    offsetY: 114,
+                    anchor: 'middle',
+                    showLine: true,
+                    dotX: 196,
+                    dotY: 485,
+                },
+                'CA-MB': {
+                    offsetX: 0,
+                    offsetY: 4,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 254,
+                    dotY: 505,
+                },
+                'CA-ON': {
+                    offsetX: -9,
+                    offsetY: 56,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 412,
+                    dotY: 582,
+                },
+                'CA-NL': {
+                    offsetX: 88,
+                    offsetY: 17,
+                    anchor: 'middle',
+                    showLine: true,
+                    dotX: 625,
+                    dotY: 469,
+                },
+                'CA-PE': {
+                    offsetX: 40,
+                    offsetY: -5,
+                    anchor: 'start',
+                    showLine: true,
+                    dotX: 550,
+                    dotY: 517,
+                },
+                'CA-NS': {
+                    offsetX: 33,
+                    offsetY: 28,
+                    anchor: 'start',
+                    showLine: true,
+                    dotX: 553,
+                    dotY: 538,
+                },
+                'CA-NB': {
+                    offsetX: 26,
+                    offsetY: 71,
+                    anchor: 'start',
+                    showLine: true,
+                    dotX: 521,
+                    dotY: 529,
+                },
+                'CA-NU': {
+                    offsetX: 182,
+                    offsetY: 54,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 445,
+                    dotY: 305,
+                },
+                'CA-NT': {
+                    offsetX: 1,
+                    offsetY: 70,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 166,
+                    dotY: 318,
+                },
+                'CA-YT': {
+                    offsetX: -15,
+                    offsetY: 17,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 33,
+                    dotY: 283,
+                },
+                'CA-QC': {
+                    offsetX: -27,
+                    offsetY: 35,
+                    anchor: 'middle',
+                    showLine: false,
+                    dotX: 479,
+                    dotY: 519,
+                },
             };
 
             // ========== GAME STATE ==========
-            
+
             let gameState = {
                 currentLevel: 1,
                 selectedOption: null,
@@ -1057,14 +1157,14 @@
                 setupEventListeners();
                 // Don't auto-start - wait for user to select level from landing page
             }
-            
+
             // Select level from landing page
             function selectLevel(level) {
                 document.getElementById('landingPage').classList.add('hidden');
                 document.getElementById('gameContainer').classList.remove('hidden');
                 startLevel(level);
             }
-            
+
             // Show landing page
             function showLandingPage() {
                 document.getElementById('gameContainer').classList.add('hidden');
@@ -1114,7 +1214,7 @@
                         circle.remove();
                     }
                 });
-                
+
                 // Remove province name labels if they exist
                 hideAllProvinceNames();
 
@@ -1125,7 +1225,7 @@
 
                 // Show/hide Ottawa star based on level
                 initOttawaStar();
-                
+
                 // Initialize capital dots for capital levels
                 initCapitalDots();
 
@@ -1149,7 +1249,8 @@
             }
 
             function updateLevelInfo() {
-                document.getElementById('levelInfo').textContent = LEVEL_TITLES[gameState.currentLevel];
+                document.getElementById('levelInfo').textContent =
+                    LEVEL_TITLES[gameState.currentLevel];
             }
 
             function updateProgress() {
@@ -1158,7 +1259,7 @@
                 if (gameState.currentLevel === 1 || gameState.currentLevel === 2) {
                     total = total - 1; // Exclude CA-OT
                 }
-                
+
                 const completed = gameState.completedProvinces.size;
                 const percent = (completed / total) * 100;
                 const progressFill = document.getElementById('progressFill');
@@ -1170,7 +1271,7 @@
                 const attemptsEl = document.getElementById('attempts');
                 const hearts = '❤️'.repeat(gameState.attempts);
                 document.querySelector('.hearts').textContent = hearts || '💔';
-                
+
                 // Show only when province is selected
                 if (gameState.currentProvince) {
                     attemptsEl.style.display = 'block';
@@ -1213,21 +1314,21 @@
                     }
 
                     renderInputPanel();
-                    
+
                     // Add toggle button for level 4
                     if (gameState.currentLevel === 4) {
                         addProvinceNameToggleButton();
                     }
                 }
             }
-            
+
             function addProvinceNameToggleButton() {
                 // Remove existing toggle button if present
                 const existingBtn = document.getElementById('toggleProvinceNamesBtn');
                 if (existingBtn) {
                     existingBtn.remove();
                 }
-                
+
                 const panel = document.querySelector('.interaction-panel');
                 const toggleBtn = document.createElement('button');
                 toggleBtn.id = 'toggleProvinceNamesBtn';
@@ -1236,11 +1337,11 @@
                 toggleBtn.addEventListener('click', toggleProvinceNames);
                 panel.appendChild(toggleBtn);
             }
-            
+
             function toggleProvinceNames() {
                 gameState.showProvinceNames = !gameState.showProvinceNames;
                 const toggleBtn = document.getElementById('toggleProvinceNamesBtn');
-                
+
                 if (gameState.showProvinceNames) {
                     toggleBtn.textContent = 'Hide Province Names';
                     showAllProvinceNames();
@@ -1249,7 +1350,7 @@
                     hideAllProvinceNames();
                 }
             }
-            
+
             function showAllProvinceNames() {
                 // Show province names for all provinces using Level 1/2 positions
                 for (const provinceId in PROVINCES) {
@@ -1257,33 +1358,39 @@
                     addProvinceNameLabel(provinceId);
                 }
             }
-            
+
             function hideAllProvinceNames() {
                 // Remove all province name labels
-                document.querySelectorAll('#canadaMap g[id^="province-label-group-"]').forEach(group => {
-                    group.remove();
-                });
-                document.querySelectorAll('#canadaMap line[id^="province-label-line-"]').forEach(line => {
-                    line.remove();
-                });
-                document.querySelectorAll('#canadaMap circle[id^="province-label-dot-"]').forEach(circle => {
-                    circle.remove();
-                });
+                document
+                    .querySelectorAll('#canadaMap g[id^="province-label-group-"]')
+                    .forEach((group) => {
+                        group.remove();
+                    });
+                document
+                    .querySelectorAll('#canadaMap line[id^="province-label-line-"]')
+                    .forEach((line) => {
+                        line.remove();
+                    });
+                document
+                    .querySelectorAll('#canadaMap circle[id^="province-label-dot-"]')
+                    .forEach((circle) => {
+                        circle.remove();
+                    });
             }
-            
+
             function addProvinceNameLabel(provinceId) {
                 // Check if already exists
                 if (document.getElementById(`province-label-group-${provinceId}`)) {
                     return;
                 }
-                
+
                 const element = document.getElementById(provinceId);
                 const bbox = element.getBBox();
                 const centerX = bbox.x + bbox.width / 2;
                 const centerY = bbox.y + bbox.height / 2;
-                
+
                 const provinceName = PROVINCES[provinceId].name;
-                
+
                 // Use province positions from Level 1/2
                 const provinceOffsets = {
                     'CA-PE': { offsetX: 28, offsetY: -19, anchor: 'start', showLine: true },
@@ -1300,18 +1407,18 @@
                     'CA-SK': { offsetX: -11, offsetY: 97, anchor: 'middle', showLine: true },
                     'CA-YT': { offsetX: -5, offsetY: 7, anchor: 'middle', showLine: false },
                 };
-                
+
                 const config = provinceOffsets[provinceId] || {
                     offsetX: 0,
                     offsetY: 0,
                     anchor: 'middle',
                     showLine: false,
                 };
-                
+
                 const labelX = centerX + config.offsetX;
                 const labelY = centerY + config.offsetY;
                 const svgMap = document.getElementById('canadaMap');
-                
+
                 // Add connecting line if specified
                 if (config.showLine) {
                     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -1325,7 +1432,7 @@
                     line.style.pointerEvents = 'none';
                     line.style.opacity = '0.7';
                     svgMap.appendChild(line);
-                    
+
                     // Add dot at province center
                     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                     circle.setAttribute('id', `province-label-dot-${provinceId}`);
@@ -1339,7 +1446,7 @@
                     circle.style.opacity = '0.7';
                     svgMap.appendChild(circle);
                 }
-                
+
                 // Create text element
                 const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 text.setAttribute('x', labelX);
@@ -1355,21 +1462,24 @@
                 text.style.paintOrder = 'stroke';
                 text.style.opacity = '0.8';
                 text.style.pointerEvents = 'none';
-                
+
                 // Handle multi-line names
                 const multiLineNames = {
                     'CA-BC': ['British', 'Columbia'],
                     'CA-NL': ['Newfoundland', 'and Labrador'],
                     'CA-NT': ['Northwest', 'Territories'],
                 };
-                
+
                 const isMultiLine = multiLineNames[provinceId];
-                
+
                 if (isMultiLine && isMultiLine.length > 1) {
                     const lineHeight = config.showLine ? 18 : 22;
                     const startY = labelY - ((isMultiLine.length - 1) * lineHeight) / 2;
                     isMultiLine.forEach((line, index) => {
-                        const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+                        const tspan = document.createElementNS(
+                            'http://www.w3.org/2000/svg',
+                            'tspan'
+                        );
                         tspan.setAttribute('x', labelX);
                         tspan.setAttribute('y', startY + index * lineHeight);
                         tspan.textContent = line;
@@ -1378,7 +1488,7 @@
                 } else {
                     text.textContent = provinceName;
                 }
-                
+
                 // Create group for province name
                 const labelGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
                 labelGroup.setAttribute('id', `province-label-group-${provinceId}`);
@@ -1396,7 +1506,7 @@
                     if (type === 'provinces' && id === 'CA-OT') {
                         continue;
                     }
-                    
+
                     const value = type === 'provinces' ? data.name : data.capital;
                     options.push({ id, value });
                 }
@@ -1432,13 +1542,13 @@
 
                 const submitBtn = document.getElementById('submitBtn');
                 const answerInput = document.getElementById('answerInput');
-                
+
                 // Track last submitted answer to prevent repeat submissions
                 let lastSubmittedAnswer = '';
-                
+
                 submitBtn.addEventListener('click', submitAnswer);
                 document.getElementById('skipBtn').addEventListener('click', skipProvince);
-                
+
                 answerInput.addEventListener('input', () => {
                     // Re-enable submit if input changed from last submission
                     if (answerInput.value.trim() !== lastSubmittedAnswer) {
@@ -1447,13 +1557,13 @@
                         submitBtn.style.cursor = 'pointer';
                     }
                 });
-                
+
                 answerInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter' && !submitBtn.disabled) {
                         submitAnswer();
                     }
                 });
-                
+
                 // Store reference to disable after wrong answer
                 window.lastSubmittedAnswer = lastSubmittedAnswer;
                 window.disableSubmitBtn = () => {
@@ -1543,7 +1653,7 @@
                 }
 
                 const svgMap = document.getElementById('canadaMap');
-                
+
                 // Capital city dot positions (exclude CA-OT since it has a star instead)
                 const capitalOffsets = {
                     'CA-BC': { dotX: 39, dotY: 470 },
@@ -1692,7 +1802,7 @@
                         }
                         input.focus();
                     }
-                    
+
                     // Show "I don't know" button when province is selected
                     const skipBtn = document.getElementById('skipBtn');
                     if (skipBtn) {
@@ -1773,7 +1883,7 @@
                     input.value = '';
                     // Clear temp input for this province
                     delete gameState.tempInputs[provinceId];
-                    
+
                     // Hide "I don't know" button
                     const skipBtn = document.getElementById('skipBtn');
                     if (skipBtn) {
@@ -1794,30 +1904,30 @@
                     gameState.failedProvinces.add(provinceId);
                     const element = document.getElementById(provinceId);
                     element.className.baseVal = 'failed';
-                    
+
                     // Add label to show the correct answer
                     addLabelToProvince(provinceId);
-                    
+
                     gameState.currentProvince = null;
                     document.getElementById('answerInput').value = '';
                     delete gameState.tempInputs[provinceId];
-                    
+
                     // Hide "I don't know" button
                     const skipBtn = document.getElementById('skipBtn');
                     if (skipBtn) {
                         skipBtn.classList.add('hidden');
                     }
-                    
+
                     // Reset attempts after skipping
                     gameState.attempts = 3;
                     updateAttempts();
-                    
+
                     // Hide attempts display after 5 seconds
                     setTimeout(() => {
                         const attemptsEl = document.getElementById('attempts');
                         attemptsEl.style.display = 'none';
                     }, 5000);
-                    
+
                     checkLevelComplete();
                 }
             }
@@ -1897,20 +2007,118 @@
 
                 // Capital city positions for Levels 3 & 4
                 const capitalOffsets = {
-                    'CA-OT': { offsetX: 48, offsetY: 31, anchor: 'middle', showLine: false, dotX: 428, dotY: 558 },
-                    'CA-BC': { offsetX: -40, offsetY: 104, anchor: 'middle', showLine: false, dotX: 39, dotY: 470 },
-                    'CA-AB': { offsetX: -5, offsetY: 30, anchor: 'middle', showLine: false, dotX: 133, dotY: 434 },
-                    'CA-SK': { offsetX: -9, offsetY: 114, anchor: 'middle', showLine: true, dotX: 196, dotY: 485 },
-                    'CA-MB': { offsetX: 0, offsetY: 4, anchor: 'middle', showLine: false, dotX: 254, dotY: 505 },
-                    'CA-ON': { offsetX: -9, offsetY: 56, anchor: 'middle', showLine: false, dotX: 412, dotY: 582 },
-                    'CA-NL': { offsetX: 88, offsetY: 17, anchor: 'middle', showLine: true, dotX: 625, dotY: 469 },
-                    'CA-PE': { offsetX: 40, offsetY: -5, anchor: 'start', showLine: true, dotX: 550, dotY: 517 },
-                    'CA-NS': { offsetX: 33, offsetY: 28, anchor: 'start', showLine: true, dotX: 553, dotY: 538 },
-                    'CA-NB': { offsetX: 26, offsetY: 71, anchor: 'start', showLine: true, dotX: 521, dotY: 529 },
-                    'CA-NU': { offsetX: 182, offsetY: 54, anchor: 'middle', showLine: false, dotX: 445, dotY: 305 },
-                    'CA-NT': { offsetX: 1, offsetY: 70, anchor: 'middle', showLine: false, dotX: 166, dotY: 318 },
-                    'CA-YT': { offsetX: -15, offsetY: 17, anchor: 'middle', showLine: false, dotX: 33, dotY: 283 },
-                    'CA-QC': { offsetX: -27, offsetY: 35, anchor: 'middle', showLine: false, dotX: 479, dotY: 519 },
+                    'CA-OT': {
+                        offsetX: 48,
+                        offsetY: 31,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 428,
+                        dotY: 558,
+                    },
+                    'CA-BC': {
+                        offsetX: -40,
+                        offsetY: 104,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 39,
+                        dotY: 470,
+                    },
+                    'CA-AB': {
+                        offsetX: -5,
+                        offsetY: 30,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 133,
+                        dotY: 434,
+                    },
+                    'CA-SK': {
+                        offsetX: -9,
+                        offsetY: 114,
+                        anchor: 'middle',
+                        showLine: true,
+                        dotX: 196,
+                        dotY: 485,
+                    },
+                    'CA-MB': {
+                        offsetX: 0,
+                        offsetY: 4,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 254,
+                        dotY: 505,
+                    },
+                    'CA-ON': {
+                        offsetX: -9,
+                        offsetY: 56,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 412,
+                        dotY: 582,
+                    },
+                    'CA-NL': {
+                        offsetX: 88,
+                        offsetY: 17,
+                        anchor: 'middle',
+                        showLine: true,
+                        dotX: 625,
+                        dotY: 469,
+                    },
+                    'CA-PE': {
+                        offsetX: 40,
+                        offsetY: -5,
+                        anchor: 'start',
+                        showLine: true,
+                        dotX: 550,
+                        dotY: 517,
+                    },
+                    'CA-NS': {
+                        offsetX: 33,
+                        offsetY: 28,
+                        anchor: 'start',
+                        showLine: true,
+                        dotX: 553,
+                        dotY: 538,
+                    },
+                    'CA-NB': {
+                        offsetX: 26,
+                        offsetY: 71,
+                        anchor: 'start',
+                        showLine: true,
+                        dotX: 521,
+                        dotY: 529,
+                    },
+                    'CA-NU': {
+                        offsetX: 182,
+                        offsetY: 54,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 445,
+                        dotY: 305,
+                    },
+                    'CA-NT': {
+                        offsetX: 1,
+                        offsetY: 70,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 166,
+                        dotY: 318,
+                    },
+                    'CA-YT': {
+                        offsetX: -15,
+                        offsetY: 17,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 33,
+                        dotY: 283,
+                    },
+                    'CA-QC': {
+                        offsetX: -27,
+                        offsetY: 35,
+                        anchor: 'middle',
+                        showLine: false,
+                        dotX: 479,
+                        dotY: 519,
+                    },
                 };
 
                 // For capital cities, show lines for all provinces
@@ -1918,20 +2126,20 @@
                     gameState.currentLevel === 3 || gameState.currentLevel === 4;
 
                 // Use capital positions for levels 3 & 4, otherwise use province positions
-                const config = showLineForCapitals 
-                    ? (capitalOffsets[provinceId] || {
-                        offsetX: 0,
-                        offsetY: 0,
-                        anchor: 'middle',
-                        showLine: false,
-                    })
-                    : (provinceOffsets[provinceId] || {
-                        offsetX: 0,
-                        offsetY: 0,
-                        anchor: 'middle',
-                        showLine: false,
-                    });
-                
+                const config = showLineForCapitals
+                    ? capitalOffsets[provinceId] || {
+                          offsetX: 0,
+                          offsetY: 0,
+                          anchor: 'middle',
+                          showLine: false,
+                      }
+                    : provinceOffsets[provinceId] || {
+                          offsetX: 0,
+                          offsetY: 0,
+                          anchor: 'middle',
+                          showLine: false,
+                      };
+
                 let labelX = centerX + config.offsetX;
                 let labelY = centerY + config.offsetY;
                 let textAnchor = config.anchor;
@@ -1941,8 +2149,8 @@
                 // Add connecting line if specified (or for all capitals)
                 if (config.showLine || showLineForCapitals) {
                     // Use custom dot position for capitals if available
-                    const dotX = (showLineForCapitals && config.dotX) ? config.dotX : centerX;
-                    const dotY = (showLineForCapitals && config.dotY) ? config.dotY : centerY;
+                    const dotX = showLineForCapitals && config.dotX ? config.dotX : centerX;
+                    const dotY = showLineForCapitals && config.dotY ? config.dotY : centerY;
                     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                     line.setAttribute('id', `label-line-${provinceId}`);
                     line.setAttribute('x1', dotX);
@@ -1957,7 +2165,10 @@
                     // For province levels (1 & 2), create dots with labels
                     // For capital levels (3 & 4), dots already exist from initCapitalDots()
                     if (!showLineForCapitals) {
-                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        const circle = document.createElementNS(
+                            'http://www.w3.org/2000/svg',
+                            'circle'
+                        );
                         circle.setAttribute('id', `label-dot-${provinceId}`);
                         circle.setAttribute('cx', dotX);
                         circle.setAttribute('cy', dotY);
@@ -2158,26 +2369,26 @@
                             // Out of attempts for this province
                             element.className.baseVal = 'failed';
                             gameState.failedProvinces.add(provinceId);
-                            
+
                             // Add label to show the correct answer
                             addLabelToProvince(provinceId);
-                            
+
                             gameState.currentProvince = null;
                             document.getElementById('answerInput').value = '';
                             delete gameState.tempInputs[provinceId];
-                            
+
                             // Hide "I don't know" button
                             const skipBtn = document.getElementById('skipBtn');
                             if (skipBtn) {
                                 skipBtn.classList.add('hidden');
                             }
-                            
+
                             // Hide attempts display after 5 seconds
                             setTimeout(() => {
                                 const attemptsEl = document.getElementById('attempts');
                                 attemptsEl.style.display = 'none';
                             }, 5000);
-                            
+
                             checkLevelComplete();
                         }
                     }, 500);
@@ -2224,7 +2435,7 @@
                     if (remainingAttempts <= 0) {
                         // Out of attempts for this province - mark as failed and show correct label
                         gameState.failedProvinces.add(provinceId);
-                        
+
                         // Set failed state immediately - don't let animation clear it
                         const mapElement = document.getElementById(provinceId);
                         if (provinceId === 'CA-OT') {
@@ -2245,14 +2456,14 @@
                             button.classList.remove('selected');
                             button.classList.add('used');
                         }
-                        
+
                         // Clear current province state
                         gameState.currentProvince = null;
                         gameState.selectedOption = null;
                         document.querySelectorAll('.option-button').forEach((btn) => {
                             btn.classList.remove('selected');
                         });
-                        
+
                         checkLevelComplete();
                     }
                 }
@@ -2266,7 +2477,7 @@
                 if (gameState.currentLevel === 1 || gameState.currentLevel === 2) {
                     total = total - 1; // Exclude CA-OT
                 }
-                
+
                 const done = gameState.completedProvinces.size + gameState.failedProvinces.size;
 
                 if (done === total) {
@@ -2282,7 +2493,11 @@
                 const scoreDisplay = document.getElementById('scoreDisplay');
 
                 const correct = gameState.completedProvinces.size;
-                const total = Object.keys(PROVINCES).length;
+                let total = Object.keys(PROVINCES).length;
+                // Exclude CA-OT for province levels
+                if (gameState.currentLevel === 1 || gameState.currentLevel === 2) {
+                    total = total - 1;
+                }
                 const percentage = Math.round((correct / total) * 100);
 
                 modalTitle.textContent = `Level ${gameState.currentLevel} Complete!`;
@@ -2321,23 +2536,18 @@
             function checkAnswerMatch(userAnswer, correctAnswer) {
                 const normalizedUser = userAnswer.toLowerCase().trim();
                 const normalizedCorrect = correctAnswer.toLowerCase().trim();
-                
+
                 // Direct match
                 if (normalizedUser === normalizedCorrect) {
                     return true;
                 }
-                
+
                 // Special handling for St. John's variations
                 if (normalizedCorrect === "st. john's") {
-                    const acceptableVariations = [
-                        "st. john's",
-                        "st johns",
-                        "st john's", 
-                        "st john"
-                    ];
-                    return acceptableVariations.some(variant => normalizedUser === variant);
+                    const acceptableVariations = ["st. john's", 'st johns', "st john's", 'st john'];
+                    return acceptableVariations.some((variant) => normalizedUser === variant);
                 }
-                
+
                 return false;
             }
 
